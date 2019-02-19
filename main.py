@@ -7,14 +7,14 @@ def re_encode_video(file):
 	try:
 		os.system('ffmpeg -i ' + file + ' -r 30 -b 2M -s 1280x720 ' + file + '_720.mp4')
 		print('processing' + file + 'to 720P DONE')
-	except:
-		print('720P error')
+	except Exception as e:
+		print(e)
 
 	try:
 		os.system('ffmpeg -i ' + file + ' -r 30 -b 1M -s 720x480 ' + file + '_480.mp4')
 		print('processing' + file + 'to 480P DONE')
-	except:
-		print('480P error')
+	except Exception as e:
+		print(e)
 
 
 def main():
