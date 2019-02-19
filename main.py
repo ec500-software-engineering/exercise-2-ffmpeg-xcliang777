@@ -2,13 +2,20 @@ import os
 import threading
 import queue
 
+path = './files/'
 
 def re_encode_video(file):
-	os.system('ffmpeg -i ' + file + ' -r 30 -b 2M -s 1280x720 ' + file + '_720.mp4')
-	print('processing' + file + 'to 720P')
+	try:
+		os.system('ffmpeg -i ' + file + ' -r 30 -b 2M -s 1280x720 ' + file + '_720.mp4')
+		print('processing' + file + 'to 720P DONE')
+	except:
+		print('720P error')
 
-	os.system('ffmpeg -i ' + file + ' -r 30 -b 1M -s 720x480 ' + file + '_480.mp4')
-	print('processing' + file + 'to 480P')
+	try:
+		os.system('ffmpeg -i ' + file + ' -r 30 -b 1M -s 720x480 ' + file + '_480.mp4')
+		print('processing' + file + 'to 480P DONE')
+	except:
+		print('480P error')
 
 
 def main():
@@ -33,7 +40,7 @@ def main():
 	for thread in thread_list:
 		thread.start()
 
-	print('Your videos are already here')
+	#print('Your videos are already here')
 
 
 if __name__ == '__main__':
