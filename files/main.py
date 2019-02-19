@@ -2,7 +2,6 @@ import os
 import threading
 import queue
 
-path = './files/'
 
 def re_encode_video(file):
 	try:
@@ -25,7 +24,7 @@ def main():
 
 	'''Serrch all mp4/mov files in the directory'''
 	try:
-		for file in os.listdir("./files"):
+		for file in os.listdir("./"):
 			if file.endswith('.mp4'):
 				t = t + 1
 				#print(file)
