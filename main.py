@@ -43,7 +43,6 @@ def ffmpeg():
 				#print(file)
 				q.put(file)
 				thread_list.append(threading.Thread(target = re_encode_video, args = (file, )))
-				duration.test_duration(file)
 
 	except Exception as e:
 		print(e)
