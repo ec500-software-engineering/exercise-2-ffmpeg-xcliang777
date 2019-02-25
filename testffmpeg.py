@@ -1,5 +1,4 @@
 import pytest
-import os
 from main import re_encode_video
 
 def test_ffmpeg(file):
