@@ -2,7 +2,6 @@ import os
 import threading
 import queue
 import subprocess
-import duration
 
 
 def re_encode_video(file):
