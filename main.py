@@ -31,7 +31,7 @@ def re_encode_video(file):
 	# 	print(e)
 
 
-def main():
+def ffmpeg():
 	q = queue.Queue()
 	thread_list = []
 	t = 0
@@ -59,4 +59,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    ffmpeg()

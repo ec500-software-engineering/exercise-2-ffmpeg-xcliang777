@@ -1,9 +1,9 @@
 import pytest
-from main import main
+from main import ffmpeg
 
 
 def test_ffmpeg():
-	dur = await main()
+	dur = ffmpeg()
 	assert dur == pytest.approx(5.)
 
 if __name__ == '__main__':
