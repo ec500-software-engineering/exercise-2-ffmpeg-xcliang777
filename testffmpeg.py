@@ -1,9 +1,9 @@
 import pytest
-import main
+from main import main
 
-@pytest.mark.asyncio
-async def test_ffmpeg():
-	dur = await main.main()
+
+def test_ffmpeg():
+	dur = await main()
 	assert dur == pytest.approx(5.)
 
 if __name__ == '__main__':
