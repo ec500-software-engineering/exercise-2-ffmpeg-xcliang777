@@ -14,3 +14,5 @@ def test_duration(filein):
 	meta_test = json.loads(meta)
 	duration_test = float(meta_test['streams'][0]['duration'])
 	assert duration_test == pytest.approx(5.)
+
+	return duration_test
