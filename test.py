@@ -1,19 +1,27 @@
-import pytest
 import myffmpeg.ffprobe as probe
-import myffmpeg.convert as convert
 from pytest import approx
 
 
 def test_duration():
-    fnin = 'sunny.mp4'
-    fnout = 'file_480p.mp4'
+    # fnin = 'sunny.mp4'
+    # fnout = 'file_480p.mp4'
 
-    orig_meta = probe.ffprobe(fnin)
-    orig_duration = float(orig_meta['streams'][0]['duration'])
+    # orig_meta = probe.ffprobe(fnin)
+    # orig_duration = float(orig_meta['streams'][0]['duration'])
 
-    # convert(fnin, fnout, 480)
+    # # convert(fnin, fnout, 480)
 
-    meta_480 = probe.ffprobe(fnout)
-    duration_480 = float(meta_480['streams'][0]['duration'])
+    # meta_480 = probe.ffprobe(fnout)
+    # duration_480 = float(meta_480['streams'][0]['duration'])
 
-    assert orig_duration == approx(duration_480)
+    # assert orig_duration == approx(duration_480)
+
+    info_in = subprocess.check_output(['ffprobe', '-v', 'warning', '-print_format', 'json', '-show_streams',
+                                           '-show_format', 'sunny.mp4'])
+    info_in = json.loads(info_in)
+    info_out = subprocess.check_output(['ffprobe', '-v', 'warning', '-print_format', 'json', '-show_streams',
+                                            '-show_format', './file_480p.mp4'])
+    info_out = json.loads(info_out)
+    orig_duration = float(info_in['streams'][0]['duration'])
+    new_duration = float(info_out['streams'][0]['duration'])
+    assert orig_duration == new_duration
