@@ -4,6 +4,9 @@ import queue
 import subprocess
 import duration
 
+def test_func(file):
+    main()
+
 
 def re_encode_video(file):
 	try:
