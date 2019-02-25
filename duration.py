@@ -9,6 +9,6 @@ def test_duration(filein):
                                 	'-show_format',
                                 	str(filein)],
                                	text=True)
-	meta = json.loads(meta_json)
-	duration_test = float(meta['streams'][0]['duration'])
+	meta_test = json.loads(meta)
+	duration_test = float(meta_test['streams'][0]['duration'])
 	return duration_test
