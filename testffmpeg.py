@@ -1,4 +1,5 @@
 import pytest
+import os
 from main import re_encode_video
 
 
