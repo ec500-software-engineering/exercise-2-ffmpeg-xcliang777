@@ -38,7 +38,6 @@ def ffmpeg():
 
 	'''Serrch all mp4/mov files in the directory'''
 	try:
-		
 		for file in os.listdir("./"):
 			if file.endswith('.mp4'):
 				t = t + 1
