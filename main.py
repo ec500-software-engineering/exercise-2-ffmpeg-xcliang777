@@ -2,6 +2,17 @@ import os
 import threading
 import queue
 import subprocess
+import json
+
+def ffprobe(file):
+	""" get media metadata """
+	meta = subprocess.check_output(['ffprobe', '-v', 'warning',
+                                	'-print_format', 'json',
+                                	'-show_streams',
+                                	'-show_format',
+                                	str(file)],
+                               	text=True)
+	return json.loads(meta)
 
 
 def convert_video(file):
