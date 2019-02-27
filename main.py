@@ -4,15 +4,33 @@ import queue
 import subprocess
 
 
-def re_encode_video(file):
+def convert_video(file):
+	
+	#convert video to 720p
+	print('Start process video to 720p')
 	try:
-		subprocess.call(['ffmpeg', '-i', file, '-r', '30', '-b:v', '2M', '-s', 'hd720', 'file_720p.mp4'])
+		subprocess.call(['ffmpeg', 
+						'-i', file,
+						 '-r', '30',
+						  '-b:v', '2M',
+						   '-s', 'hd720',
+						   '-loglevel', 'quiet'
+						    'file_720p.mp4'])
 		print('processing' + file + 'to 720P DONE')
 	except Exception as e:
 		print(e)
 
+	#convert video to 480p
+	print('Start process video to 480p')
+	
 	try:
-		subprocess.call(['ffmpeg', '-i', file, '-r', '30', '-b:v', '2M', '-s', 'hd480', 'file_480p.mp4'])
+		subprocess.call(['ffmpeg',
+						 '-i', file,
+						  '-r', '30',
+						   '-b:v', '2M',
+						    '-s', 'hd480',
+						    '-loglevel', 'quiet'
+						     'file_480p.mp4'])
 		print('processing' + file + 'to 480P DONE')
 	except Exception as e:
 		print(e)
@@ -42,7 +60,7 @@ def ffmpeg():
 				t = t + 1
 				#print(file)
 				q.put(file)
-				thread_list.append(threading.Thread(target = re_encode_video, args = (file, )))
+				thread_list.append(threading.Thread(target = convert_video, args = (file, )))
 
 	except Exception as e:
 		print(e)
