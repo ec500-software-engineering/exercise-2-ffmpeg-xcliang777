@@ -7,9 +7,9 @@ def test_duration():
     #define all test files in the list
     fnin = './test.mp4'
     
-    fnout_480 = './file_480p.mp4'
+    fnout_480 = './test_480p.mp4'
     
-    fnout_720 = './file_720p.mp4'
+    fnout_720 = './test_720p.mp4'
 
 
     #call ffprobe function in main.py
