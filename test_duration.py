@@ -1,5 +1,4 @@
 from pytest import approx
-import subprocess
 import main
 
 
