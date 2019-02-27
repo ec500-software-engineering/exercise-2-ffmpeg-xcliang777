@@ -7,4 +7,4 @@ In this module, the program convert viseo into 480P and 720P saperately in multi
 Output file will be in the same folder as the input file.
 
 # How to use
-TO run the program, simply use 'python main.py'
+TO run the program, simply use 'python main.py'.
